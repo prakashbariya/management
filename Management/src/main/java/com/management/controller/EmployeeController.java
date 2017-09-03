@@ -19,7 +19,7 @@ import com.management.entity.Employee;
 import com.management.service.IEmployeeService;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("/")
 public class EmployeeController {
 	@Autowired
 	private IEmployeeService employeeService;

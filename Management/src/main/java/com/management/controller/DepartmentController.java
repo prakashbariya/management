@@ -19,7 +19,7 @@ import com.management.entity.Department;
 import com.management.service.IDepartmentService;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("/")
 public class DepartmentController {
 	@Autowired
 	private IDepartmentService departmentService;
