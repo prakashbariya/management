@@ -1,0 +1,66 @@
+<div id="left">
+    <h2 class="section-title">{{ 'Employee List'  }}</h2>
+
+    <div>
+        <!--<md-progress-spinner *ngIf="!heroes"-->
+                             <!--class="progress-spinner"-->
+                             <!--[color]="'primary'"-->
+                             <!--[mode]="'indeterminate'">-->
+        <!--</md-progress-spinner>-->
+        <md-list>
+            <md-list-item *ngFor="let employee of employees">
+                <img (click)="edit(employee);" md-list-avatar src="assets/images/heroes/default.png">
+                <h3 md-line [ngClass]="{'cp': employee.default}" (click)="edit(employee);"> {{employee.name}} </h3>
+                <p md-line [ngClass]="{'cp': employee.default}" (click)="edit(employee);">
+                    <span>{{employee.email}}</span>
+                </p>
+                <div class="hero-actions">
+                    {{employee.likes}}
+                    <md-icon class="edit-icon" (click)="edit(employee)">
+                        edit
+                    </md-icon>
+                    <md-icon class="remove-icon" *ngIf="!employee.default"
+                             (click)="remove(employee);">
+                        delete
+                    </md-icon>
+                </div>
+            </md-list-item>
+        </md-list>
+    </div>
+</div>
+<div id="right">
+    <h2 class="section-title">{{ editTitle  }} Employee</h2>
+
+    <div>
+        <form [formGroup]="newEmployeeForm" #form="ngForm" (ngSubmit)="createNewEmployee(newEmployeeForm.value)">
+            <md-input-container class="input-container">
+                <input mdInput type="text"
+                       placeholder="{{'name'}}"
+                       formControlName="name">
+            </md-input-container>
+
+            <md-input-container class="input-container">
+                <input mdInput type="text"
+                       placeholder="{{'email'}}"
+                       formControlName="email">
+            </md-input-container>
+
+
+            <md-input-container class="input-container">
+                <input mdInput  aria-label="State"  placeholder="Department" formControlName="department"  [mdAutocomplete]="auto" >
+                <md-autocomplete #auto="mdAutocomplete">
+                    <md-option *ngFor="let state of departmets" [value]="state.name">
+                        <span>{{ state.name }}</span>
+                    </md-option>
+                </md-autocomplete>
+            </md-input-container>
+
+            <button md-raised-button type="submit" [disabled]="!newEmployeeForm.valid">
+                {{editTitle}}
+            </button>
+
+            <div *ngIf="error">{{error }}</div>
+        </form>
+    </div>
+</div>
+<div class="clear"></div>

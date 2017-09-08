@@ -1,0 +1,24 @@
+<header>
+    <nav>
+
+        <a md-raised-button routerLink="{{'employees'}}">
+            {{'employee' | uppercase}}
+        </a>
+        <a md-raised-button routerLink="{{'department'}}">
+            {{'department' | uppercase}}
+        </a>
+
+        <div class="flex-spacer"></div>
+
+
+        <a class="image-icon" href="{{appConfig.repositoryURL}}" target="_blank">
+            <img src="assets/images/github-circle-white-transparent.svg">
+        </a>
+    </nav>
+    <section class="progress-bar">
+        <md-progress-bar
+            [color]="'primary'"
+            [mode]="progressBarMode">
+        </md-progress-bar>
+    </section>
+</header>

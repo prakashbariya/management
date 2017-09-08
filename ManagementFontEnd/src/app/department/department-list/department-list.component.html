@@ -1,0 +1,99 @@
+<div id="left">
+    <h2 class="section-title">{{ 'Department List'  }}</h2>
+
+    <p style="padding: 30px">
+       <!-- <md-progress-spinner *ngIf="!heroes"
+                             class="progress-spinner"
+                             [color]="'primary'"
+                             [mode]="'indeterminate'">
+        </md-progress-spinner>-->
+       <!-- <md-list>
+            <md-list-item *ngFor="let departmet of departmets">
+                <img (click)="edit(departmet);" md-list-avatar src="assets/images/heroes/default.png">
+                <h3 md-line [ngClass]="{'cp': departmet.default}" (click)="edit(departmet);"> {{departmet.name}} </h3>
+                <p md-line [ngClass]="{'cp': departmet.default}" (click)="edit(departmet);">
+                    <span>{{departmet.email}}</span>
+                </p>
+                <div class="hero-actions">
+                    {{departmet.likes}}
+                    <md-icon class="edit-icon" (click)="edit(departmet)">
+                        edit
+                    </md-icon>
+                    <md-icon class="remove-icon" *ngIf="!departmet.default"
+                             (click)="remove(departmet);">
+                        delete
+                    </md-icon>
+                </div>
+            </md-list-item>
+        </md-list>-->
+
+        <expansion-panels-container>
+            <expansion-panel *ngFor="let departmet of departmets" (onCancel)='resetForm()' (onSubmit)='saveForm()'>
+                <expansion-panel-title>
+                    <h2 md-line [ngClass]="{'cp': departmet.default}" (click)="edit(departmet);"> {{departmet.name}} </h2>
+                </expansion-panel-title>
+                <expansion-panel-description-hidden>
+                    <p align="right">
+                        <md-icon class="edit-icon" (click)="edit(departmet)">
+                            edit
+                        </md-icon>
+                        <md-icon class="remove-icon" *ngIf="!departmet.default"
+                                 (click)="remove(departmet);">
+                            delete
+                        </md-icon>
+                    </p>
+                </expansion-panel-description-hidden>
+
+                <expansion-panel-description-toggled>
+                    <p align="right">
+                        <md-icon class="edit-icon" (click)="edit(departmet)">
+                            edit
+                        </md-icon>
+                        <md-icon class="remove-icon" *ngIf="!departmet.default"
+                                 (click)="remove(departmet);">
+                            delete
+                        </md-icon>
+                    </p>
+                </expansion-panel-description-toggled>
+
+                <expansion-panel-content>
+                    <div>
+                        <md-list>
+                            <md-list-item *ngFor="let employee of departmet.employees">
+                                <img (click)="edit(employee);" md-list-avatar src="assets/images/heroes/default.png">
+                                <h3 md-line [ngClass]="{'cp': employee.default}" (click)="edit(employee);"> {{employee.name}} </h3>
+                                <p md-line [ngClass]="{'cp': employee.default}" (click)="edit(employee);">
+                                    <span>{{employee.email}}</span>
+                                </p>
+                            </md-list-item>
+                        </md-list>
+                    </div>
+                </expansion-panel-content>
+
+                <expansion-panel-buttons>
+
+                </expansion-panel-buttons>
+            </expansion-panel>
+
+        </expansion-panels-container>
+</div>
+<div id="right">
+    <h2 class="section-title">{{ editTitle  }} Department</h2>
+
+    <div>
+        <form [formGroup]="newDepartmetForm" #form="ngForm" (ngSubmit)="createNewDepartmet(newDepartmetForm.value)">
+            <md-input-container class="input-container">
+                <input mdInput type="text"
+                       placeholder="{{'name'}}"
+                       formControlName="name">
+            </md-input-container>
+
+            <button md-raised-button type="submit" [disabled]="!newDepartmetForm.valid">
+                {{editTitle}}
+            </button>
+
+            <div *ngIf="error">{{error }}</div>
+        </form>
+    </div>
+</div>
+<div class="clear"></div>
