@@ -1,14 +1,19 @@
 package com.management.service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.management.dao.IEmployeeDAO;
+import com.management.entity.Department;
 import com.management.entity.Employee;
 @Service
 public class EmployeeService implements IEmployeeService {
+	
+	@Autowired
+	private IDepartmentService departmentService;
 	@Autowired
 	private IEmployeeDAO employeeDAO;
 	@Override
@@ -25,6 +30,7 @@ public class EmployeeService implements IEmployeeService {
        if (employeeDAO.employeeExists(employee.getName(), employee.getEmail())) {
     	   return false;
        } else {
+    	   //private Department department=  departmentService.getDepartmentById(employee.getDepartment().getDepartmentId());
     	   employeeDAO.addEmployee(employee);
     	   return true;
        }

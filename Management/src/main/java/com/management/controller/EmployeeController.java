@@ -6,6 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,13 +14,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.management.entity.Employee;
 import com.management.service.IEmployeeService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/") 
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8787"},
+maxAge = 4800, allowCredentials = "false")
 public class EmployeeController {
 	@Autowired
 	private IEmployeeService employeeService;
@@ -28,7 +32,7 @@ public class EmployeeController {
 		Employee employee = employeeService.getEmployeeById(id);
 		return new ResponseEntity<Employee>(employee, HttpStatus.OK);
 	}
-	@GetMapping("employees")
+	@GetMapping("employee")
 	public ResponseEntity<List<Employee>> getAllEmployees() {
 		List<Employee> list = employeeService.getAllEmployees();
 		return new ResponseEntity<List<Employee>>(list, HttpStatus.OK);

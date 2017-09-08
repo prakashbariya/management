@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="Employee")
@@ -27,6 +28,7 @@ public class Employee implements Serializable {
 	private String email;
 	
 	
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name="department_id", nullable=false)
 	private Department department;
@@ -59,9 +61,17 @@ public class Employee implements Serializable {
 		return department;
 	}
 
+	
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", name=" + name + ", email=" + email + "]";
+	}
+	
+	
 	
 	
 } 

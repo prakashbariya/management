@@ -9,6 +9,8 @@ import com.management.dao.IDepartmentDAO;
 import com.management.entity.Department;
 @Service
 public class DepartmentService implements IDepartmentService {
+	
+	
 	@Autowired
 	private IDepartmentDAO departmentDAO;
 	@Override
