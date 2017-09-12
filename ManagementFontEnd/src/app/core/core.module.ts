@@ -7,8 +7,8 @@ import {LoggerService} from './logger.service';
 
 import {NavComponent} from './nav/nav.component';
 import {FooterComponent} from './footer/footer.component';
-import {SharedModule} from '../shared/modules/shared.module';
 import {RouterModule} from '@angular/router';
+import {MaterialModule} from "../shared/modules/material.module";
 
 
 @NgModule({
@@ -16,7 +16,7 @@ import {RouterModule} from '@angular/router';
     CommonModule,
     FormsModule,
     RouterModule,
-    SharedModule,
+    MaterialModule,
     ReactiveFormsModule
   ],
   exports: [

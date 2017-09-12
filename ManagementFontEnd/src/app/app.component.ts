@@ -16,26 +16,5 @@ export class AppComponent {
               private title: Title,
               private meta: Meta,
               private router: Router) {
-
-    this.router.events.subscribe((event: any) => {
-      if (event instanceof NavigationEnd) {
-        switch (event.urlAfterRedirects) {
-          case '/':
-            this.title.setTitle('Angular Example App');
-            this.meta.updateTag({
-              name: 'description',
-              content: 'Angular 4 Example app with Angular CLI, Angular Material and more'
-            });
-            break;
-          case '/' + AppConfig.routes.heroes:
-            this.title.setTitle('Heroes list');
-            this.meta.updateTag({
-              name: 'description',
-              content: 'List of super-heroes'
-            });
-            break;
-        }
-      }
-    });
   }
 }

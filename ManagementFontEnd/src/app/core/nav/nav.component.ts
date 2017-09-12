@@ -2,7 +2,6 @@ import {Component, Inject} from '@angular/core';
 
 import {APP_CONFIG, AppConfig} from '../../config/app.config';
 import {IAppConfig} from '../../config/iapp.config';
-import {ProgressBarService} from '../../shared/services/progress-bar.service';
 
 @Component({
   selector: 'app-nav',
@@ -16,13 +15,9 @@ export class NavComponent {
   progressBarMode: string;
 
 
-  constructor(@Inject(APP_CONFIG) appConfig: IAppConfig,
-              private progressBarService: ProgressBarService,) {
+  constructor(@Inject(APP_CONFIG) appConfig: IAppConfig) {
     this.appConfig = appConfig;
 
-    this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
-      this.progressBarMode = mode;
-    });
   }
 
   changeLanguage(language: string): void {

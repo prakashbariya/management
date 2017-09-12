@@ -5,7 +5,6 @@ import {FormsModule} from '@angular/forms';
 import {APP_CONFIG, AppConfig} from './config/app.config';
 
 import {AppRoutingModule} from './app-routing.module';
-import {SharedModule} from './shared/modules/shared.module';
 import {CoreModule} from './core/core.module';
 
 import {AppComponent} from './app.component';
@@ -15,6 +14,7 @@ import {Departmet} from "./department/shared/department.model";
 import {EmployeeService} from "./employee/shared/employee.service";
 import {DepartmetListComponent} from "./department/department-list/department-list.component";
 import {EmployeesModule} from "./employee/employees.module";
+import {MaterialModule} from "./shared/modules/material.module";
 
 @NgModule({
   imports: [
@@ -24,7 +24,7 @@ import {EmployeesModule} from "./employee/employees.module";
     HttpClientModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule,
+    MaterialModule,
     EmployeesModule
   ],
   declarations: [

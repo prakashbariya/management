@@ -14,10 +14,10 @@ export const AppConfig: IAppConfig = {
     heroes: 'https://nodejs-example-app.herokuapp.com/heroes'
   },
   endEmployeepoints: {
-    employees: 'http://localhost:8080/employee'
+    employees: 'http://18.220.205.15:8090/employee'
   },
   endDepartmentpoints: {
-    department: 'http://localhost:8080/department'
+    department: 'http://18.220.205.15:8090/department'
   },
   votesLimit: 3,
   topHeroesLimit: 4,

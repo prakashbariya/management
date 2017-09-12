@@ -95,7 +95,7 @@ export class EmployeeService {
   like(employee: Employee) {
     if (this.checkIfUserCanVote()) {
       this.request$.emit('starting');
-      const url = `${this.employeesUrl}/${employee.id}/like`;
+      const url = `${this.employeesUrl}/${employee.employeeId}/like`;
       //noinspection TypeScriptUnresolvedFunction
       return this.http
         .post(url, {}, {headers: this.headers})

@@ -37,19 +37,9 @@ export class DepartmetListComponent {
 
     this.departmetService.getAllDepartmets().subscribe((departmets: Array<Departmet>) => {
       this.departmets = departmets;
-      /*this.employees = employeees.sort((a, b) => {
-        return b.likes - a.likes;
-      });*/
     });
   }
 
-  like(departmet: Departmet) {
-    this.departmetService.like(departmet).subscribe(() => {
-      this.canVote = this.departmetService.checkIfUserCanVote();
-    }, (error: Response) => {
-      LoggerService.error('maximum votes limit reached', error);
-    });
-  }
   edit(departmet: Departmet) {
     this.editTitle="Upadate"
     this.newDepartmetForm = this.formBuilder.group({
@@ -88,16 +78,6 @@ export class DepartmetListComponent {
           this.error = 'errorHasOcurred';
         }
       });
-    }
-
-
-
-
-  }
-
-  seeDepartmetDetails(departmet): void {
-    if (departmet.default) {
-      this.router.navigate([AppConfig.routes.Departmets + '/' + departmet.departmentId]);
     }
   }
 

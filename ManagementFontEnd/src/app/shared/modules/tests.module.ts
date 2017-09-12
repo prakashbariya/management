@@ -1,5 +1,4 @@
 import {NgModule} from '@angular/core';
-import {ProgressBarService} from '../services/progress-bar.service';
 import {MaterialModule} from './material.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -20,7 +19,7 @@ import {RouterTestingModule} from '@angular/router/testing';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ProgressBarService]
+  providers: []
 })
 
 export class TestsModule {
