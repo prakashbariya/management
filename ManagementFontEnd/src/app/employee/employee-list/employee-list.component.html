@@ -47,7 +47,7 @@
 
 
             <md-input-container class="input-container">
-                <input mdInput  aria-label="State"  placeholder="Department" formControlName="department"  [mdAutocomplete]="auto" >
+                <input mdInput  readonly aria-label="State"  placeholder="Department" formControlName="department"  [mdAutocomplete]="auto" >
                 <md-autocomplete #auto="mdAutocomplete">
                     <md-option *ngFor="let state of departmets" [value]="state.name">
                         <span>{{ state.name }}</span>

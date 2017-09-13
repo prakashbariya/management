@@ -61,8 +61,8 @@
                         <md-list>
                             <md-list-item *ngFor="let employee of departmet.employees">
                                 <img (click)="edit(employee);" md-list-avatar src="assets/images/heroes/default.png">
-                                <h3 md-line [ngClass]="{'cp': employee.default}" (click)="edit(employee);"> {{employee.name}} </h3>
-                                <p md-line [ngClass]="{'cp': employee.default}" (click)="edit(employee);">
+                                <h3 md-line [ngClass]="{'cp': employee.default}" > {{employee.name}} </h3>
+                                <p md-line [ngClass]="{'cp': employee.default}">
                                     <span>{{employee.email}}</span>
                                 </p>
                             </md-list-item>
